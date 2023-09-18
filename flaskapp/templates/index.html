@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1 class="display-4">Hello Flask!</h1>
+
+<p class="lead">This is a template to get you spinning up with <code>flask</code> and <code>Bootstrap</code>.</p>
+
+<img class="img-fluid" src="{{ url_for('static', filename='images/doing-great.jpg') }}">
+
+{% endblock %}
