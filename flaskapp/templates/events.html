@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Events {% endblock %}
+
+{%block content %}
+<h1> PartyTime Events </h1>
+
+<div class = "row">
+
+{% for event in events %}
+
+<div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3" >
+
+<div class="card my-3 mx-2" style="width: 18rem;">
+
+    <img class="card-img-top" src="{{url_for('static', filename = event['image_path'])}}" alt="Card image cap">
+  </a>
+    <div class="card-body">
+     
+      <h5 class="card-title">{{event['name']}}</h5>
+      <p class="card-text"> {{event['date']}} at {{event['start_time']}}</p>
+      <a href = "{{ url_for('events_id', event_id = event['name'])}}" class = "btn btn-primary"> View Event </a>
+    </div>
+  </div>
+</div>
+{%endfor%}
+</div>
+{% endblock %}

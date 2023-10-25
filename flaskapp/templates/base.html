@@ -7,14 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/styles.css')}}"
 </head>
 
 <body class="d-flex flex-column h-100">
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url_for('index') }}">Site Title</a>
+                <a class="navbar-brand" href="{{ url_for('index') }}">Party Time!</a>
 
                 <div class="justify-content-end">
 
@@ -27,12 +29,19 @@
                         <ul class="navbar-nav me-auto mb-2 mb-md-0">
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#">navlink-1</a>
+                                <a class="nav-link" href="{{url_for('index')}}">Home</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#">navlink-2</a>
+                                <a class="nav-link" href="{{url_for('events')}}"> Events </a>
                             </li>
+
+                            <li class = "nav-item">
+                                <a class = "nav-link" href = "{{ url_for('venues')}}"> Venues </a>
+                            </li> 
+
+                            <li class = "nav-item">
+                                <a class = "nav-link" href = "{{ url_for('people')}}"> People </a>  
 
                         </ul>
                     </div>

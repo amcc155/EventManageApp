@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Events {% endblock %}
+
+{%block content %}
+<img class = "img-fluid img-thumbnail mx-auto d-block" src = "{{ url_for('static', filename = 'images/birthday-party.png')}}">
+<h1> PartyTime Venues </h1>
+<!-- create table -->
+<table class = "table table-borderless table-sm">
+    <thead>
+        <tr>
+            <th scope = "col"> Name</th>
+            <th scope = "col" > Address </th>
+            <th scope = "col"> Phone </th>
+            <th scope = "col"> Rental Fee </th>
+            <th scope = "col"> Capacity </th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- table data-->
+  {% for venue in venues %}
+   <tr>
+    <td> {{venue['name']}}</td>
+    <td> {{venue['address']}}</td>
+    <td> {{venue['contact_phone']}}</td>
+    <td> ${{venue['rental_fee']}}</td>
+    <td> {{venue['max_attendees']}}</td>
+   </tr>
+
+  {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

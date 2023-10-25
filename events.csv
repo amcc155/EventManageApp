@@ -1,0 +1,7 @@
+name,date,venue,start_time,end_time,invitation_text,image_path,max_attendees,party_planner,rental_items,notes
+Dinner Party,2023-12-31,Royal Plaza Hotel,20:00,01:00,"You are cordially invited to the Masquerade Ball. Dress code: Formal attire with masks.","images/dinner-party.png",300,Emily,stage;lighting,"Make sure the stage is decorated with gold and silver accents."
+Graduation Event,2021-06-25,Sunset Beach Resort,12:00,18:00,"Join us for a fun-filled day at the Summer Beach Party. Don't forget your sunscreen!",images/graduation-event.png,200,Michael,tents;chairs,"Ensure there are enough beach umbrellas for shade."
+Music Concert,2023-10-31,Haunted Mansion Estate,19:00,23:00,"You're invited to the Halloween Haunt. Expect a night of spooky surprises and delicious treats!",images/music-concert.png,150,Sophia,decorations;candy,"Make sure the fog machines and eerie lighting effects are in place."
+Outdoor Party ,2023-04-15,Greenwood Manor Gardens,14:00,17:00,"Indulge in a delightful afternoon at the Spring Garden Tea Party. Hats and gloves are encouraged!",images/outdoor-party.png,50,William,tables;tea_set,"Ensure the tables are decorated with fresh flowers and vintage tablecloths."
+Sports Event,2023-04-15,Sport Arena,12:00,16:00,"You are invited to this Sports Event.",images/sports-event.png,1000,Liam,sports equipment,"Make sure everything is right."
+Birthday Party,2024-01-5,Home,15:00,19:00,"You are invited to this Birthday Party.",images/birthday-party.png,50,Aidan,food,"Make sure there is not too many people."

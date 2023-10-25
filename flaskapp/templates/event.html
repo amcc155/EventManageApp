@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} Events {% endblock %}
+
+{%block content %}
+<h1> {{event['name']}} </h1>
+<img class = "img-fluid img-thumbnail mx-auto d-block" src =  "{{url_for('static', filename = event['image_path'])}}">
+
+<ul class = "list-group">
+    <li class = "list-group-item d-flex justify-content-between align-items-center px-5" ><strong> Location: </strong>
+        <span> {{event['venue']}} </span>
+    </li>
+    <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong> Date: </strong>
+        <span> {{event['date']}} </span>
+    </li>
+    <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong> Start Time: </strong> 
+        <span> {{event['start_time']}} </span>
+    </li>
+    <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong>End Time: </strong> 
+        <span> {{event['end_time']}} </span>
+    </li>
+    <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong>Maximum Attendees</strong>
+        <span> {{event['max_attendees']}} </span>
+    </li>
+    <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong>Invitation Text</strong>
+        <span> {{event['invitation_text']}}
+    </li>
+    <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong>Event Planner</strong>
+        <span> {{event['party_planner']}} </span>
+    </li>
+    <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong>PartyTime Rental Items: </strong>
+        <span> {{event['rental_items']}} </span>
+    </li>
+    <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong>Event Notes: </strong>
+        <span> {{event['notes']}} </span>
+    </li>
+    
+</ul>
+{% endblock %}

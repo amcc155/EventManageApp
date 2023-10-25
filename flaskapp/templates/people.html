@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} Events {% endblock %}
+
+{%block content %}
+<img class="img-fluid mx-auto d-block" src = "{{ url_for('static', filename = 'images/birthday-party.png' )}}">
+<h1> PartyTime People </h1>
+<table class = "table table-borderless table-sm">
+    <thead>
+        <tr>
+            <th scope = "col"> Name</th>
+            <th scope = "col" > Address </th>
+            <th scope = "col"> Email </th>
+            <th scope = "col"> Date of Birth </th>
+            <th scope = "col"> Phone </th>
+        </tr>
+    </thead>
+    <tbody>
+{%for person in people %}
+<tr>
+    <td> {{person['name']}}</td>
+    <td> {{person['address']}}</td>
+    <td> {{person['email']}}</td>
+    <td> {{person['date_of_birth']}}</td>
+    <td> {{person['mobile_phone']}}</td>
+   </tr>
+
+{% endfor %}
+    </tbody>
+    <table>
+{% endblock %}
