@@ -4,7 +4,7 @@
 {%block content %}
 <h1> {{event['name']}} </h1>
 <img class = "img-fluid img-thumbnail mx-auto d-block" src =  "{{url_for('static', filename = event['image_path'])}}">
-
+<!-- list group that dsiaplys all the data side to side with label-->
 <ul class = "list-group">
     <li class = "list-group-item d-flex justify-content-between align-items-center px-5" ><strong> Location: </strong>
         <span> {{event['venue']}} </span>

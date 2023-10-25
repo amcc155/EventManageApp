@@ -3,6 +3,7 @@
 {% block title %} PartyTime Events {% endblock %}
 
 {% block content %}
+<!-- hero text and image-->
 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
     <div class="col-10 col-sm-8 col-lg-6">
       <img class = "img-fluid" src = "{{url_for('static', filename = 'images/birthday-party.png')}}">
@@ -10,6 +11,8 @@
     <div class="col-lg-6">
       <h1 class="display-5 fw-bold lh-1 mb-3"> PartyTime Events</h1>
       <p class="lead"> Making your party time the best it can be </p>
+
+     <!-- buttons-->
       <div class="d-grid gap-2 d-md-flex justify-content-md-start">
         <a href="{{ url_for('events') }}" class="btn btn-primary btn-lg px-4 me-md-2">See Events</a>
         <a href = "{{ url_for('venues') }}" class="btn btn-primary btn-lg me-md-2">See Venues</a>
