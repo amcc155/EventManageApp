@@ -35,4 +35,7 @@
     </li>
     
 </ul>
+
+<a href = "{{url_for('edit_event', event_id = event['name'])}}" class = 'btn btn-primary' > Edit event </a>
+<a href  = "{{url_for('edit_event', event_id = event['name'])}}" class = 'btn btn-danger' > Delete Event </a>
 {% endblock %}

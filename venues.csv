@@ -1,7 +1,8 @@
 name,address,contact_phone,rental_fee,max_attendees
-Royal Plaza Hotel,123 Main Street, +1234567890,5000,500
+Home,365 Home Street,+2194560912,200,50
+Greenwood Manor Gardens,101 Garden Way, +7654321098,2000,200
 Sunset Beach Resort,456 Beach Avenue, +1987654321,3000,300
 Haunted Mansion Estate,789 Spooky Lane, +1029384756,4000,400
-Greenwood Manor Gardens,101 Garden Way, +7654321098,2000,200
-Home,365 Home Street,+2194560912,200,50
+Royal Plaza Hotel,123 Main Street, +1234567890,5000,500
 Sport Arena,123 Sport Arena,+7739871209,12008,30000
+

@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% block title %} Add Person {% endblock %}
+{%block content %}
+
+{% if event_edit %}
+<div class = "container mt-3">
+<h1> Edit Event </h1>
+<form  action = "{{url_for('edit_event', event_id = event_edit['name'])}}" method = "POST" name = "edit_event">
+
+    <div class = 'mb-3'>
+    <label for = 'event_name'>Event Name: </label>
+    <input class = 'form-control' type = 'text' id = 'event_name' name = 'event_name'  value = {{event_edit['name']}} class = 'form-control'  required> 
+    </div>
+
+    <div class = 'mb-3'>
+    <label for = "venue"> Venue: </label>
+    <input class = 'form-control' type = 'text' id = 'venue' name = 'venue' value = {{event_edit['venue']}} class = 'form-control'  required>
+    </div>
+    
+    <div class = 'mb-3'>
+    <label for = "date"> Date: </label>
+    <input class = 'form-control' type = 'date' id = 'date' name = 'date' value = {{event_edit['date']}} class = 'form-control'  required>
+    </div>
+
+    <div class = 'mb-3'>
+    <label for = 'start-time'> Start Time: </label>
+    <input class = 'form-control' type = 'time' id = 'start-time' name = 'start-time' value = {{event_edit['start_time']}} class = 'form-control' required>
+    </div>
+
+    <div class = 'mb-3'>
+    <label for = 'end-time' > End Time: </label>
+    <input class = 'form-control' type = 'time' id ='end-time' name = 'end-time' value = {{event_edit['end_time']}} class = 'form-control' required>
+    </div>
+
+    <div class = 'mb-3'> 
+    <label for = 'max-attendees'> Max Attendees </label>
+    <input class = 'form-control' type = 'number' id = 'max-attendees' name="max-attendees" value = {{event_edit['max_attendees']}} class = 'form-control'  required>
+    </div>
+
+    <div class = 'mb-3'> 
+    <label for = 'invitation'> invitation </label>
+    <textarea required id="invitation" name="invitation" class = 'form-control' > {{ event_edit['invitation_text'] }} ></textarea>
+    </div>
+
+    <div class = 'mb-3'>
+        <label for = 'planner'> PartyTime Planner: </label>
+        <input class = 'form-control' type = 'text' id = 'planner' name = 'planner' value = {{event_edit['party_planner']}} class = 'form-control'  required> </input>class = 'form-control' 
+    </div>
+
+    <div class = "mb-3"> 
+        <label for = 'rental-items' > Rental Items: </label>
+        <input class = 'form-control' type = 'text' id = 'rental-items' name = 'rental-items' value = {{event_edit['rental_items']}} class = 'form-control'  required> </input>class = 'form-control' 
+        </div>
+
+    <div class = "mb-3"> 
+        <label for = 'image' > Image Path: </label>
+        <input class = 'form-control' type = 'text' id = 'image' name = image value = {{event_edit['image_path']}} class = 'form-control' required></input>class = 'form-control' 
+    </div>
+
+    <div class = 'mb-3'>
+        <label for = 'notes' > Notes: </label>
+        <textarea required class = 'form-control' id="notes" name="notes" class = 'form-control' > {{ event_edit['notes'] }} required></textarea>
+    </div>
+    
+    <button class = 'btn btn-primary' type = "submit" value = "Submit"> Submit </button>
+    <button class = 'btn btn-danger' type = "reset" value = "Reset"> Reset </button>
+</form>
+</div>
+
+    {% else %}
+    <h1> Add an Event </h1>
+    <div class = "container mt-3">
+    <form  action = "{{url_for('add_event')}}" method = "POST" name = "add_event">
+
+    <div class = 'mb-3'>
+    <label for = 'event_name'>Event Name: </label>
+    <input class = 'form-control' type = 'text' id = 'event_name' name = 'event_name'  required> 
+    </div>
+
+    <div class = 'mb-3'>
+    <label for = "venue"> Venue: </label>
+    <input class = 'form-control' type = 'text' id = 'venue' name = 'venue'  required>
+    </div>
+    
+    <div class = 'mb-3'>
+    <label for = "date"> Date: </label>
+    <input class = 'form-control' type = 'date' id = 'date' name = 'date' required>
+    </div>
+
+    <div class = 'mb-3'>
+    <label for = 'start-time'> Start Time: </label>
+    <input class = 'form-control' type = 'time' id = 'start-time' name = 'start-time'  required>
+    </div>
+
+    <div class = 'mb-3'>
+    <label for = 'end-time' > End Time: </label>
+    <input class = 'form-control' type = 'time' id ='end-time' name = 'end-time'  required>
+    </div>
+
+    <div class = 'mb-3'> 
+    <label for = 'max-attendees'> Max Attendees </label>
+    <input class = 'form-control' type = 'number' id = 'max-attendees' name="max-attendees"  required>
+    </div>
+
+    <div class = 'mb-3'> 
+    <label for = 'invitation'> invitation </label>
+    <textarea class = 'form-control' id="invitation" name="invitation" required></textarea>
+    </div>
+
+    <div class = 'mb-3'>
+        <label for = 'planner'> PartyTime Planner: </label>
+        <input class = 'form-control' type = 'text' id = 'planner' name = 'planner'  required> </input>
+    </div>
+
+    <div class = 'mb-3'> 
+        <label for = 'rental-items' > Rental Items: </label>
+        <input class = 'form-control' type = 'text' id = 'rental-items' name = 'rental-items'  required> </input>
+        </div>
+
+    <div class = 'mb-3'> 
+        <label for = 'image' > Image Path: </label>
+        <input class = 'form-control' type = 'text' id = 'image' name = 'image' required></input>
+    </div>
+
+    <div class = 'mb-3'>
+        <label for = 'notes' > Notes: </label>
+        <textarea class = 'form-control' id="notes" name="notes"  required></textarea>
+    </div>
+    
+    <button class = 'btn btn-primary' type = "submit" value = "Submit"> Submit </button>
+    <button class = 'btn btn-danger' type = "reset" value = "Reset"> Reset </button>
+       
+
+
+  
+
+</form>
+</div>
+
+{% endif %}
+{%endblock%}
+
+
