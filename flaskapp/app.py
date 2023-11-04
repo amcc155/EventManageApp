@@ -145,6 +145,7 @@ def add_event():
         edited_event['venue'] = request.form['venue']
         edited_event['date'] = request.form['date']
         #convert the time here
+        
         edited_event['start_time'] = request.form['start-time']
         edited_event['end_time'] = request.form['end-time']
         edited_event['max_attendees'] = request.form['max-attendees']
@@ -170,10 +171,10 @@ def edit_event(event_id):
         edited_event['venue'] = request.form['venue']
         edited_event['date'] = request.form['date']
         #converting time to 24 houur format so it can go through the get_events function when eventually called
-        start_time = datetime.strptime(request.form['start-time'], "%I:%M %p").strftime("%H:%M")
-        end_time = datetime.strptime(request.form['end-time'], "%I:%M %p").strftime("%H:%M")
-        edited_event['start_time'] = start_time
-        edited_event['end_time'] = end_time
+        # start_time = datetime.strptime(request.form['start-time'], "%I:%M %p").strftime("%H:%M")
+        # end_time = datetime.strptime(request.form['end-time'], "%I:%M %p").strftime("%H:%M")
+        edited_event['start_time'] = request.form['start-time']
+        edited_event['end_time'] = request.form['end-time']
         edited_event['max_attendees'] = request.form['max-attendees']
         edited_event['invitation_text'] = request.form['invitation']
         edited_event['party_planner'] = request.form['planner']
