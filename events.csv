@@ -1,10 +1,5 @@
 name,date,venue,start_time,end_time,invitation_text,image_path,max_attendees,party_planner,rental_items,notes
-Graduation Event,2021-06-25,Sunset Beach Resort,12:00 PM,18:00,Join us for a fun-filled day at the Summer Beach Party. Don't forget your sunscreen!,images/graduation-event.png,200,Michael,tents;chairs,Ensure there are enough beach umbrellas for shade.
-Outdoor Party ,2023-04-15,Greenwood Manor Gardens,02:00 PM,17:00,Indulge in a delightful afternoon at the Spring Garden Tea Party. Hats and gloves are encouraged!,images/outdoor-party.png,50,William,tables;tea_set,Ensure the tables are decorated with fresh flowers and vintage tablecloths.
 Sports Event,2023-04-15,Sport Arena,12:00 PM,16:00,You are invited to this Sports Event.,images/sports-event.png,1000,Liam,sports equipment,Make sure everything is right.
+Outdoor,2023-04-15,Greenwood,03:00 PM,13:00,   Indulge in a delightful afternoon at the Spring Garden Tea Party. Hats and gloves are encouraged! > > >,images/outdoor-party.png,50,William,tables;tea_set,   Ensure the tables are decorated with fresh flowers and vintage tablecloths. required> required> required>
 Music Concert,2023-10-31,Haunted Mansion Estate,07:00 PM,23:00,You're invited to the Halloween Haunt. Expect a night of spooky surprises and delicious treats!,images/music-concert.png,150,Sophia,decorations;candy,Make sure the fog machines and eerie lighting effects are in place.
-ok,2023-11-03,cool,06:25 PM,18:24,fff,fff,88,fff,fff,fff
-ok,2023-11-08,cool,06:25 PM,18:22,h,hh,77,b,hh,hhh
-Dinner Party,2023-12-31,Royal Plaza Hotel,08:00 PM,01:00,You are cordially invited to the Masquerade Ball. Dress code: Formal attire with masks.,images/dinner-party.png,300,Emily,stage;lighting,Make sure the stage is decorated with gold and silver accents.
-Birthday Party,2024-01-5,Home,03:00 PM,19:00,You are invited to this Birthday Party.,images/birthday-party.png,50,Aidan,food,Make sure there is not too many people.
-ok,2023-11-03,cool,22:18,13:18,g,h,6,hhg,hhh,h
+Graduation,2023-11-03,Sunset,12:00,18:00, Join us for a fun-filled day at the Summer Beach Party. Don't forget your sunscreen! >,images/graduation-event.png,200,Michael,tents;chairs, Ensure there are enough beach umbrellas for shade. required>
