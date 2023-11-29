@@ -129,7 +129,7 @@ def remove_attendee_event(event_id, attendee_id):
 def get_host(event_id):
     """Takes a event_id and returns a dictionary of the data for the host of the event with
     event_id as its primary key"""
-    sql = 'SELECT * FROM people JOIN events AS e ON e.host_id = people.person_id WHERE e.event_id = %s;'
+    sql = 'SELECT people.* FROM people JOIN events AS e ON e.host = people.person_id WHERE e.event_id = %s;'
     conn = get_connection()
     with conn:
         with conn.cursor() as cursor:
@@ -151,7 +151,7 @@ def set_host(person_id, event_id):
 def get_planner(event_id):
     """Takes a event_id and returns a dictionary of the data for the planner of the event with
     event_id as its primary key"""
-    sql = 'SELECT * FROM people JOIN events as e ON people.person_id = e.planner WHERE e.event_id = %s '
+    sql = 'SELECT people.* FROM people JOIN events as e ON people.person_id = e.planner WHERE e.event_id = %s '
     conn = get_connection()
     with conn:
         with conn.cursor() as cursor:
@@ -194,4 +194,6 @@ def add_venue(name,address,phone,fee,capacity):
 if __name__ == "__main__":
     # Add test code here to make sure all your functions are working correctly
     
-    print(get_attendees(3))
+   
+    
+    print(get_event(2))
