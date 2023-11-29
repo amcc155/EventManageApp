@@ -159,6 +159,7 @@ def add_event():
         return(redirect(url_for('index')))
     else:
         return(render_template('add-event.html'))
+
     
 "Change the event data when the user clicks submit on the form, or bring them to the page to fill form out "
 @app.route("/event/<event_id>/edit", methods = ['GET',"POST"])
