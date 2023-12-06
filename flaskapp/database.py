@@ -18,7 +18,7 @@ def get_connection():
 
 
 def get_events():
-    sql = "select * from events"
+    sql = "select * from events order by event_date"
     conn = get_connection()
     with conn:
         with conn.cursor() as cursor:
@@ -39,7 +39,31 @@ def get_event(event_id):
             return cursor.fetchone()
     """Takes a event_id, returns a single dictionary containing the data for the event with that id"""
     
+def get_venue_name(event_id):
+    sql = 'select venue.name from venue JOIN events as e on e.venue = venue_id WHERE event_id = %s'
+    conn = get_connection()
+    with conn:
+        with conn.cursor() as cursor:
+            cursor.execute(sql,(event_id))
+            return cursor.fetchone()
+        
+def get_event_host(event_id):
+    sql = 'select people.* from people JOIN events as e on e.host = people.person_id WHERE event_id = %s '
+    conn = get_connection()
+    with conn:
+        with conn.cursor() as cursor:
+            cursor.execute(sql,(event_id))
+            return cursor.fetchone()  
 
+def get_event_planner(event_id):
+    sql = 'select people.* from people JOIN events as e on e.planner = people.person_id WHERE event_id = %s'
+    conn= get_connection()
+    with conn:
+        with conn.cursor() as cursor:
+            cursor.execute(sql,(event_id))
+            return cursor.fetchone()
+
+            
 def add_event(name,event_date,start_time,end_time,venue,invitation,maximum_attendees,planner,host,rental_items,notes,image_path):
     """Takes as input all of the data for a event. Inserts a new event into the event table"""
     sql = "insert into events(name,event_date,start_time,end_time,venue,invitation,maximum_attendees,planner,host,rental_items,notes,image_path) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
@@ -60,7 +84,7 @@ def update_event(event_id, name,event_date,start_time,end_time,venue,invitation,
         conn.commit()
   
 def get_people():
-    sql = "SELECT * FROM people"
+    sql = "SELECT * FROM people ORDER BY dob"
     conn = get_connection()
     with conn:
         with conn.cursor() as cursor:
@@ -70,12 +94,12 @@ def get_people():
     """Returns a list of dictionaries representing all of the person data"""
     
 
-def add_person(name,address,email,dob,phone,role):
-    sql = 'INSERT INTO people(name, address, email, dob, phone, role) VALUES (%s, %s, %s, %s, %s, %s)'
+def add_person(name,address,email,dob,phone):
+    sql = 'INSERT INTO people(name, address, email, dob, phone) VALUES (%s, %s, %s, %s, %s)'
     conn = get_connection()
     with conn:
         with conn.cursor() as cursor:
-            cursor.execute(sql,(name,address, email, dob, phone, role))
+            cursor.execute(sql,(name,address, email, dob, phone))
         conn.commit()
         
     """Takes as input all of the data for a person and adds a new person to the person table"""
@@ -172,7 +196,7 @@ def set_planner(person_id, event_id):
 
 def get_venues():
     """Returns a list of dictionaries representing all of the venues data"""
-    sql = 'SELECT * FROM venues'
+    sql = 'SELECT * FROM venues ORDER BY fee '
     conn = get_connection()
     with conn:
         with conn.cursor() as cursor:
@@ -181,7 +205,7 @@ def get_venues():
         
     
 
-def add_venue(name,address,phone,fee,capacity):
+def add_venues(name,address,phone,fee,capacity):
     """Takes as input all of the data for a venue. Inserts a new venue into the event table"""
     sql = 'INSERT INTO venues(name,address,phone,fee,maximum_attendees) VALUES(%s, %s, %s, %s, %s)'
     conn = get_connection()

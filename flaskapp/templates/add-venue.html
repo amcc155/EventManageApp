@@ -2,7 +2,11 @@
 {% block title %} Add Venue {% endblock %}
 {% block content %}
 <div class="container mt-5">
+  
     <h1>Add a Venue!</h1>
+    {% if error %}
+    <p class = 'text-danger'> {{error}} </p>
+    {% endif %}
     <form action="{{url_for('add_venue')}}" method="POST" name="add_event" class="mt-4">
         <div class="mb-3">
             <label for='name'>Event Name:</label>
@@ -20,13 +24,15 @@
         </div>
 
         <div class="mb-3">
+           
             <label for='phone'>Phone:</label>
             <input type='tel' id='phone' name='phone' class="form-control" required>
+           
         </div>
 
         <div class="mb-3">
             <label for='rental_fee'>Rental Fee:</label>
-            <input type='number' id='rental_fee' name='rental_fee' class="form-control" required>
+            <input type='number' min = 1 id='rental_fee' name='rental_fee' class="form-control" required>
         </div>
 
         <div class="mb-3">

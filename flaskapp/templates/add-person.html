@@ -1,28 +1,36 @@
 {% extends 'base.html' %}
 {% block title %} Add Person {% endblock %}
 {%block content %}
-<h1> Add Venue </h1>
+
+<h1> Add Person </h1>
 <div class = "container mt-5">
 <form action = "{{url_for('add_person')}}" method = "POST" name = "add_person">
+    {% if error %}
+    <p class = 'text-danger' > {{error}} </p>
+    {% endif %}
 
     <div class = 'mb-3'>
     <label for = 'name'>Name: </label>
-    <input class = 'form-control' = 'text' id = 'name' name = 'name' required> 
+    <input class = 'form-control' type = 'text' id = 'name' name = 'name' maxlength="50" required> 
     </div>
 
     <div class = 'mb-3'>
     <label for = "address"> Address: </label>
-    <input class = 'form-control' type = 'text' id = 'address' name = 'address' required>
+    <input class = 'form-control' type = 'text' id = 'address' name = 'address' maxlength="95" required>
     </div>
     
     <div class = 'mb-3'>
     <label for = "email"> Email: </label>
     <input class = 'form-control' type = 'email' id = 'email' name = 'email' required>
+   
+    
+  
     </div>
 
     <div class = 'mb-3'>
     <label for = 'phone'> Phone: </label>
-    <input class = 'form-control' type = 'text' id = 'phone' name = 'phone' required>
+    <input class = 'form-control' type = 'tel' id = 'phone' name = 'phone' placeholder = '(XXX)-XXX-XXXX' maxlength="20" required>
+  
     </div>
 
     <div class = 'mb-3'>

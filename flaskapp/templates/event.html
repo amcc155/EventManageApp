@@ -7,10 +7,10 @@
 <!-- list group that dsiaplys all the data side to side with label-->
 <ul class = "list-group">
     <li class = "list-group-item d-flex justify-content-between align-items-center px-5" ><strong> Location: </strong>
-        <span> {{event['venue']}} </span>
+        <span> {{name['name']}} </span>
     </li>
     <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong> Date: </strong>
-        <span> {{event['date']}} </span>
+        <span> {{event['event_date']}} </span>
     </li>
     <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong> Start Time: </strong> 
         <span> {{event['start_time']}} </span>
@@ -19,13 +19,13 @@
         <span> {{event['end_time']}} </span>
     </li>
     <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong>Maximum Attendees</strong>
-        <span> {{event['max_attendees']}} </span>
+        <span> {{event['maximum_attendees']}} </span>
     </li>
     <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong>Invitation Text</strong>
-        <span> {{event['invitation_text']}}
+        <span> {{event['invitation']}}
     </li>
     <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong>Event Planner</strong>
-        <span> {{event['party_planner']}} </span>
+        <span> {{planner['name']}},| {{planner['email']}}, |  {{planner['phone']}} </span>
     </li>
     <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong>PartyTime Rental Items: </strong>
         <span> {{event['rental_items']}} </span>
@@ -33,9 +33,11 @@
     <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong>Event Notes: </strong>
         <span> {{event['notes']}} </span>
     </li>
-    
+    <li class = "list-group-item d-flex justify-content-between align-items-center px-5" > <strong> Host </strong>
+        <span> {{host['name']}}, | {{host['email']}}, | {{host['phone']}} </span>
+    </li>
 </ul>
 
-<a href = "{{url_for('edit_event', event_id = event['name'])}}" class = 'btn btn-primary' > Edit event </a>
+<a href = "{{url_for('edit_event', event_id = event['event_id'])}}" class = 'btn btn-primary' > Edit event </a>
 <a href  = "{{url_for('edit_event', event_id = event['name'])}}" class = 'btn btn-danger' > Delete Event </a>
 {% endblock %}

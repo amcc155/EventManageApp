@@ -17,8 +17,9 @@
     <div class="card-body">
      
       <h5 class="card-title">{{event['name']}}</h5>
-      <p class="card-text"> {{event['date']}} at {{event['start_time']}}</p>
-      <a href = "{{ url_for('events_id', event_id = event['name'])}}" class = "btn btn-primary"> View Event </a>
+      <p class="card-text"> {{event['event_date']}} at {{event['start_time']}}</p>
+    
+      <a href = "{{ url_for('display_event', event_id = event['event_id'])}}" class = "btn btn-primary"> View Event </a>
     </div>
   </div>
 </div>

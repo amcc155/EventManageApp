@@ -5,7 +5,8 @@
 {% if event_edit %}
 <div class = "container mt-3">
 <h1> Edit Event </h1>
-<form  action = "{{url_for('edit_event', event_id = event_edit['name'])}}" method = "POST" name = "edit_event">
+
+<form  action = "{{url_for('edit_event', event_id = event_edit['event_id'])}}" method = "POST" name = "edit_event">
 
     <div class = 'mb-3'>
     <label for = 'event_name'>Event Name: </label>
@@ -19,7 +20,7 @@
     
     <div class = 'mb-3'>
     <label for = "date"> Date: </label>
-    <input class = 'form-control' type = 'date' id = 'date' name = 'date' value = {{event_edit['date']}} class = 'form-control'  required>
+    <input class = 'form-control' type = 'date' id = 'date' name = 'date' value = {{event_edit['event_date']}} class = 'form-control'  required>
     </div>
 
     <div class = 'mb-3'>
@@ -34,18 +35,22 @@
 
     <div class = 'mb-3'> 
     <label for = 'max-attendees'> Max Attendees </label>
-    <input class = 'form-control' type = 'number' id = 'max-attendees' name="max-attendees" value = {{event_edit['max_attendees']}} class = 'form-control'  required>
+    <input class = 'form-control' type = 'number' id = 'max-attendees' name="max-attendees" value = {{event_edit['maximum_attendees']}} class = 'form-control'  required>
     </div>
 
     <div class = 'mb-3'> 
     <label for = 'invitation'> invitation </label>
-    <textarea required id="invitation" name="invitation" class = 'form-control' > {{ event_edit['invitation_text'] }} ></textarea>
+    <textarea required id="invitation" name="invitation" class = 'form-control'>{{event_edit['invitation']}}</textarea>
     </div>
 
     <div class = 'mb-3'>
         <label for = 'planner'> PartyTime Planner: </label>
-        <input class = 'form-control' type = 'text' id = 'planner' name = 'planner' value = {{event_edit['party_planner']}} class = 'form-control'  required> </input>
+        <input class = 'form-control' type = 'text' id = 'planner' name = 'planner' value = {{event_edit['planner']}} class = 'form-control'  required> </input>
     </div>
+
+    <div class= 'mb-3'>
+        <label for = 'host'> Host </label>
+        <input class = 'form-control' type = 'text' id = 'host' name = 'host' value = {{event_edit['host']}} required></input>
 
     <div class = "mb-3"> 
         <label for = 'rental-items' > Rental Items: </label>
@@ -54,12 +59,12 @@
 
     <div class = "mb-3"> 
         <label for = 'image' > Image Path: </label>
-        <input class = 'form-control' type = 'text' id = 'image' name = image value = {{event_edit['image_path']}} class = 'form-control' required></input>
+        <input class = 'form-control' type = 'text' id = 'image' name = 'image' value = {{event_edit['image_path']}} class = 'form-control' required></input>
     </div>
 
     <div class = 'mb-3'>
         <label for = 'notes' > Notes: </label>
-        <textarea required class = 'form-control' id="notes" name="notes" class = 'form-control' > {{ event_edit['notes'] }} required></textarea>
+        <textarea required class = 'form-control' id="notes" name="notes" class = 'form-control' required>{{event_edit['notes']}} </textarea>
     </div>
     
     <button class = 'btn btn-primary' type = "submit" value = "Submit"> Submit </button>
@@ -104,12 +109,17 @@
 
     <div class = 'mb-3'> 
     <label for = 'invitation'> invitation </label>
-    <textarea class = 'form-control' id="invitation" name="invitation" required></textarea>
+    <textarea class = 'form-control' id="invitation" name="invitation" maxlength="225"></textarea>
     </div>
 
     <div class = 'mb-3'>
         <label for = 'planner'> PartyTime Planner: </label>
         <input class = 'form-control' type = 'text' id = 'planner' name = 'planner'  required> </input>
+    </div>
+
+    <div class = 'mb-3'>
+        <label for ='host' > Host </label>
+        <input class = 'form-control' type="text" id = 'host' name = 'host' required> </input>
     </div>
 
     <div class = 'mb-3'> 
@@ -119,7 +129,7 @@
 
     <div class = 'mb-3'> 
         <label for = 'image' > Image Path: </label>
-        <input class = 'form-control' type = 'text' id = 'image' name = 'image' required></input>
+        <input class = 'form-control' type = 'text' id = 'image' name = 'image' maxlength="100" required></input>
     </div>
 
     <div class = 'mb-3'>
