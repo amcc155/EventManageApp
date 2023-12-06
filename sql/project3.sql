@@ -4,6 +4,9 @@ DROP TABLE IF EXISTS events;
 DROP TABLE IF EXISTS venues;
 DROP TABLE IF EXISTS people;
 
+alter TABLE people
+alter column dob DATETIME
+
 -- Create 'people' table
 CREATE TABLE people (
     person_id INT PRIMARY KEY AUTO_INCREMENT,
