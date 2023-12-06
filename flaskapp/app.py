@@ -175,5 +175,6 @@ def add_venue():
             database.add_venues(name, address, phone,
                                 rental_fee, max_attendees)
             return (redirect(url_for('display_venues')))
+        
     else:
         return (render_template('add-venue.html'))
