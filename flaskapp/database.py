@@ -40,7 +40,7 @@ def get_event(event_id):
     """Takes a event_id, returns a single dictionary containing the data for the event with that id"""
     
 def get_venue_name(event_id):
-    sql = 'select venue.name from venue JOIN events as e on e.venue = venue_id WHERE event_id = %s'
+    sql = 'select venues.name from venues JOIN events as e on e.venue = venue_id WHERE event_id = %s'
     conn = get_connection()
     with conn:
         with conn.cursor() as cursor:
@@ -94,12 +94,12 @@ def get_people():
     """Returns a list of dictionaries representing all of the person data"""
     
 
-def add_person(name,address,email,dob,phone):
-    sql = 'INSERT INTO people(name, address, email, dob, phone) VALUES (%s, %s, %s, %s, %s)'
+def add_person(name,address,email,dob,phone, role):
+    sql = 'INSERT INTO people(name, address, email, dob, phone, role) VALUES (%s, %s, %s, %s, %s, %s)'
     conn = get_connection()
     with conn:
         with conn.cursor() as cursor:
-            cursor.execute(sql,(name,address, email, dob, phone))
+            cursor.execute(sql,(name,address, email, dob, phone, role))
         conn.commit()
         
     """Takes as input all of the data for a person and adds a new person to the person table"""
@@ -129,9 +129,9 @@ def get_attendees(event_id):
     
     
 
-def add_attendee_event(event_id, attendee_id):
+def add_attendee_event(attendee_id, event_id):
     """Takes as input a event_id and a attendee_id and inserts the appropriate data into the database that indicates the attendee with attendee_id as a primary key is attending the event with the event_id as a primary key"""
-    sql = "INSERT INTO attendees(attendee_id, event_id) VALUES (%s %s)"
+    sql = "INSERT INTO attendees(attendee_id, event_id) VALUES (%s,%s)"
     conn = get_connection()
     with conn:
         with conn.cursor() as cursor:

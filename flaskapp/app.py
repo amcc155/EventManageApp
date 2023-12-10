@@ -6,6 +6,7 @@ from operator import itemgetter
 from datetime import datetime
 from flaskapp import database
 import re
+import logging
 app = Flask(__name__)
 
 def validate_input(name, email, address, phone):
@@ -77,12 +78,13 @@ def add_person():
         email = request.form['email']
         mobile_phone = request.form['phone']
         dob = request.form['birth']
+        role = request.form['role']
         #handle data 
         error = validate_input(name, email, address, mobile_phone)
         if error:
             return render_template('add-person.html', error=error)
         else:
-            database.add_person(name, address, email, dob, mobile_phone)
+            database.add_person(name, address, email, dob, mobile_phone,role)
             return (redirect(url_for('display_people')))
     else:
         return (render_template('add-person.html'))
@@ -100,17 +102,22 @@ def display_events():
 ''' route the events with the event_id parameter, which takes the name of the event, which is used to access the data in the dictionary '''
 @app.route("/events/<event_id>/")
 def display_event(event_id: str):
+
     #getting data based of corresponding id
     event = database.get_event(event_id)
     name = database.get_venue_name(event_id)
     host = database.get_event_host(event_id)
     planner = database.get_event_planner(event_id)
-    return render_template('event.html', event=event, name=name, host=host, planner=planner)
+    attendees = database.get_attendees(event_id)
+    people = database.get_people()
+    return render_template('event.html', event=event, name=name, host=host, planner=planner, attendees = attendees, people = people)
 
 
 ''' either get the form data when the user submits add event form, or take the user to the form page if they click the add button'''
 @app.route("/events/add", methods=['GET', "POST"])
 def add_event():
+    venues = database.get_venues()
+    people = database.get_people()
     if request.method == "POST":
         name = request.form['event_name']
         venue = request.form['venue']
@@ -130,12 +137,32 @@ def add_event():
 
         return (redirect(url_for('display_events')))
     else:
-        return(render_template('add-event.html'))
+        return(render_template('add-event.html', venues = venues, people = people))
+    
+    '''deleting attendees and redirecting back to event page'''
+@app.route("/events/<event_id>/attendees/<person_id>/delete")
+def delete_attendee(event_id, person_id):
+    database.remove_attendee_event(event_id,person_id)
+  
+    return (redirect(url_for('display_event', event_id = event_id)))
+
+
+#adding attendees and redirecting back to event page
+@app.route("/events/<event_id>/attendees/add", methods = ['POST'])
+def add_attendee(event_id):
+    if request.method == 'POST':
+        new_attendee_id = request.form['attendee']
+     
+        database.add_attendee_event(new_attendee_id,event_id)
+    
+    return(redirect(url_for('display_event', event_id = event_id)))
                 
 '''Change the event data when the user clicks submit on the form, or bring them to the page to fill form out'''
 @app.route("/events/<event_id>/edit", methods=['GET', "POST"])
 def edit_event(event_id):
     event = database.get_event(event_id)
+    people = database.get_people()
+    venues = database.get_venues()
     if request.method == "POST":
         name = request.form['event_name']
         venue = request.form['venue']
@@ -150,13 +177,13 @@ def edit_event(event_id):
         notes = request.form['notes']
         host = request.form['host']
 
-        #update the event
+        #update the events
         database.update_event(event_id,name, date, start_time, end_time, venue, invitation,
                            max_attendees, planner, host, rental_items, notes, image_path)
 
         return (redirect(url_for('display_event', event_id = event_id)))
     else:
-        return (render_template('add-event.html', event_edit=event))
+        return (render_template('add-event.html', event_edit=event, people = people, venues = venues))
 
 
 ''' if user hits submit on form, collect the data and add it to csv, othewise the user clicked the nav button bringing them to form'''

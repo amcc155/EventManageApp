@@ -9,14 +9,10 @@
     {% endif %}
     <form action="{{url_for('add_venue')}}" method="POST" name="add_event" class="mt-4">
         <div class="mb-3">
-            <label for='name'>Event Name:</label>
+            <label for='name'> Venue Name:</label>
             <input type='text' id='name' name='name' class="form-control" required>
         </div>
 
-        <div class="mb-3">
-            <label for='planner'>PartyTime Planner:</label>
-            <input type='text' id='planner' name='planner' class="form-control" required>
-        </div>
 
         <div class="mb-3">
             <label for='address'>Address:</label>

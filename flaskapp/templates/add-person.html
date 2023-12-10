@@ -22,10 +22,15 @@
     <div class = 'mb-3'>
     <label for = "email"> Email: </label>
     <input class = 'form-control' type = 'email' id = 'email' name = 'email' required>
-   
-    
-  
-    </div>
+   </div>
+
+   <div class = 'mb-3'>
+    <label for = "role"> Role: </label>
+    <select class = 'form-select' id = 'role' name = 'role' required>
+        <option> customer </option>
+        <option> staff </option>
+    </select>
+</div>
 
     <div class = 'mb-3'>
     <label for = 'phone'> Phone: </label>
@@ -37,6 +42,8 @@
     <label for = 'birth' > Date of Birth: </label>
     <input class = 'form-control' type = 'date' id ='birth' name = 'birth' required>
     </div>
+
+
 
     <button class = 'btn btn-primary' type = "submit" value = "Submit"> Submit </button>
     <button class = 'btn btn-danger' type= "reset" value = "Reset"> Reset </button>
