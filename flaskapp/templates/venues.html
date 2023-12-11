@@ -5,6 +5,7 @@
 <img class = "img-fluid img-thumbnail mx-auto d-block" src = "{{ url_for('static', filename = 'images/birthday-party.png')}}">
 <h1> PartyTime Venues </h1>
 <!-- create table -->
+<div class = 'table-responsive overflow-auto'>
 <table class = "table table-borderless table-sm">
     <thead>
         <tr>
@@ -29,5 +30,6 @@
   {% endfor %}
     </tbody>
 </table>
+</div>
 <a href = "{{url_for('add_venue')}}" class = 'btn btn-primary'> Add a venue </a>
 {% endblock %}
