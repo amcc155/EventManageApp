@@ -6,7 +6,7 @@ from flaskapp.config import DB_HOST, DB_USER, DB_PASS, DB_DATABASE
 # Make sure you have data in your tables. You should have used auto increment for
 # primary keys, so all primary keys should start with 1
 
-
+"""test"""
 def get_connection():
     return connect(
         host=DB_HOST,
